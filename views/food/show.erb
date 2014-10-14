@@ -1,0 +1,11 @@
+<h1>One Food Item</h1>
+<ul>
+	<%= @food.food_name %>
+	<%= @food.price %>
+</ul> 
+
+<form action="/foods/<%= @food.id %>" method="post">
+	<input type="hidden" name="_method" value="delete">
+	<input type="submit" placeholder="Remove Food Item">
+</form>
+

@@ -1,0 +1,11 @@
+<ul>
+	<%= @party.name %>
+	<%= @party.table_num %>
+	<%= @party.party_size %>
+</ul>
+
+
+<form action="/parties/<%= @party.id %>" method="post">
+	<input type="hidden" name="_method" value="delete">
+	<input type="submit" placeholder="Delete Party">
+</form>

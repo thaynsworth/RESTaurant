@@ -1,0 +1,11 @@
+<h2>All Parties</h2>
+
+<ul>
+	<% @party.each do |party| %>
+		<li>
+			<%= party.name %>
+			<%= party.table_num %>
+			<%= party.party_size %>
+		</li>
+	<% end %>
+</ul>
