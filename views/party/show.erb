@@ -6,14 +6,23 @@
 	</ul>
 <h2>Party's Order</h2>
 	<ul>
+		<% @party.orders.each do |order| %>
+			<li>
+				<%= order.food.food_name %>
+			</li>
+		<% end %>
 	</ul> 
+<h2>Add to Order</h2>
 
-<h3>Connect Party/Food</h3>
-	<form action="/parties/<%= @party.id %>/order" method="post">
-		<input type="text" name="order[food_id]">
-		<input type="integer" name="order[party_id]">
-		<input type="submit">
+<% @foods.each do |food| %>
+	<form action="/orders" method="post">
+			<li>
+				<input type="hidden" name="order[party_id]" value="<%= @party.id %>">
+				<input type="hidden" name="order[food_id]" value="<%= food.id %>">
+				<input type="submit" value="<%= food.food_name %>">
+			</li>
 	</form>
+<% end %>
 
 	<form action="/parties/<%= @party.id %>" method="post">
 		<input type="hidden" name="_method" value="delete">

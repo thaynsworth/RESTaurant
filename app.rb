@@ -70,6 +70,7 @@ end
 
 get '/parties/:id' do
 	@party = Party.find(params[:id])
+	@foods = Food.all
 	erb :'party/show'
 end
 
@@ -93,11 +94,31 @@ end
 ## Orders
 ###################
 
-post '/parties/:id/order' do
-	Order.create(params[:order])
-	redirect "/parties/#{params[:id]}"
+# post '/parties/:id/orders' do
+
+# 	# @party = Party.find(params[:id])
+# 	# @food = Food.where(params[:id])
+# 	Order.create(params[:orders])
+# 	redirect "/parties"  #{params[:id]}
+# end
+
+get '/orders' do
+	@orders = Order.all
+	erb :'order/show'
 end
 
+post '/orders' do
+	# food = Food.where(name: params[:food_name])
+	# @party = Party.find(params[:id])
+	# @party.foods << food
+	order = Order.create(params[:order])
+	redirect "/parties/#{order.party_id}"
+end
+
+get '/orders/:id' do
+	@orders = Order.find(params[:id])
+	erb :'order/show'
+end
 
 
 

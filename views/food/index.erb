@@ -2,8 +2,9 @@
 <ul>
 	<% @food.each do |food| %>
 		<li>
+			<a href="/foods/<%= food.id %>">
 			<%= food.food_name %> --
-			$<%= food.price %>
+			$<%= food.price %></a>
 		</li>
 	<% end %> 
 </ul>
