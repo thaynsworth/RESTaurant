@@ -1,11 +1,26 @@
-<ul>
-	<%= @party.name %>
-	<%= @party.table_num %>
-	<%= @party.party_size %>
-</ul>
+<h2>Party Name</h2>
+	<ul>
+		Name: <%= @party.name %> ||
+		Table Number: <%= @party.table_num %> ||
+		Party Size: <%= @party.party_size %>
+	</ul>
+<h2>Party's Order</h2>
+	<ul>
+	</ul> 
 
+<h3>Connect Party/Food</h3>
+	<form action="/parties/<%= @party.id %>/order" method="post">
+		<input type="text" name="order[food_id]">
+		<input type="integer" name="order[party_id]">
+		<input type="submit">
+	</form>
 
-<form action="/parties/<%= @party.id %>" method="post">
-	<input type="hidden" name="_method" value="delete">
-	<input type="submit" placeholder="Delete Party">
-</form>
+	<form action="/parties/<%= @party.id %>" method="post">
+		<input type="hidden" name="_method" value="delete">
+		<input type="submit" value="Delete Party">
+	</form>
+
+	<a href="/">Home</a>
+	<a href="/foods">Show Menu</a>
+	<a href="/parties">Show All Parties</a>
+

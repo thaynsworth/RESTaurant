@@ -14,6 +14,7 @@ end
 ###################
 ## Food
 ###################
+
 get '/foods' do
 	@food = Food.all
 	erb :'food/index'
@@ -48,7 +49,6 @@ delete '/foods/:id' do
 	Food.destroy(params[:id])
 	redirect '/foods'
 end
-
 
 ###################
 ## Parties
@@ -89,7 +89,14 @@ delete '/parties/:id' do
 	redirect '/parties'
 end
 
+###################
+## Orders
+###################
 
+post '/parties/:id/order' do
+	Order.create(params[:order])
+	redirect "/parties/#{params[:id]}"
+end
 
 
 

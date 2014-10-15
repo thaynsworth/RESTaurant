@@ -1,11 +1,12 @@
-<h1>Full Food List</h1>
-
-
+<h1>Menu</h1>
 <ul>
 	<% @food.each do |food| %>
 		<li>
-			<%= food.food_name %>
-			<%= food.price %>
+			<%= food.food_name %> --
+			$<%= food.price %>
 		</li>
 	<% end %> 
 </ul>
+
+<a href="/">Home</a>
+<a href="/foods/new">Add Item</a>

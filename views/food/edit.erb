@@ -1,6 +1,14 @@
+<h2>Edit Menu</h2>
+
 <form action="/foods/<%= @food.id %>" method="post">
 	<input type="hidden" name="_method" value="patch">
 	<input type="text" name="food[food_name]" placeholder="Edit Food">
 	<input type="integer" name="food[price]" placeholder="Edit Price">
 	<input type="submit">
 </form>
+
+<a href="/">Home</a>
+<a href="/foods">Show Menu</a>
+<a href="/foods/new">Add Item</a>
+<a href="/parties">Show All Parties</a>
+<a href="/parties/new">Add Party</a>
