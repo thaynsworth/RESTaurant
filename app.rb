@@ -104,7 +104,7 @@ end
 
 get '/orders' do
 	@orders = Order.all
-	erb :'order/show'
+	erb :'order/index'
 end
 
 post '/orders' do
@@ -116,8 +116,27 @@ post '/orders' do
 end
 
 get '/orders/:id' do
-	@orders = Order.find(params[:id])
+	order = Order.find(params[:id])
+	@party = order.party
 	erb :'order/show'
+end
+
+delete '/orders/:id' do
+	Order.destroy(params[:id])
+	redirect "/parties/#{order.party_id}"
+end
+
+get '/parties/:id/receipt' do
+	@party = Party.find(params[:id])
+
+	file = File.open('receipt.txt', 'w')
+
+	@orders = Order.where(party_id: params[:id])
+	@orders.each do |order|
+		file.write([order.food.food_name, order.food.price])
+	end
+	file.close
+	erb :'party/receipt'
 end
 
 

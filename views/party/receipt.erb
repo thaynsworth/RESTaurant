@@ -1,0 +1,10 @@
+<h1>Receipt for.. </h1>
+
+<form action='/parties/<%= @party.id %>'name="method" method="post">
+	<input type="hidden" name="party[id]" value="<%= @party.id %>">
+</form>
+
+<% @orders.each do |order| %>
+	<%= order.food.food_name %>
+	<%= order.food.price %>
+<% end %>

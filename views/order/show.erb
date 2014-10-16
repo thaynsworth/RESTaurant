@@ -1,3 +1,7 @@
-<ul>
-	<%= @order.food %>
-</ul> 
+
+<% @party.orders.each do |order| %>
+	<li>
+			<%= order.food.food_name %>
+	</li>
+<% end %>
+

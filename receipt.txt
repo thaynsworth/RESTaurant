@@ -1,0 +1,1 @@
+["Bacon", 10]["Cheese", 3]["Pasta", 10]["Sausage", 5]["Bacon", 10]

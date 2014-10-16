@@ -8,10 +8,13 @@
 	<ul>
 		<% @party.orders.each do |order| %>
 			<li>
-				<%= order.food.food_name %>
+				<a href="/orders/<%= order.id %>">
+					<%= order.food.food_name %></a>
 			</li>
 		<% end %>
 	</ul> 
+
+	<a href="/parties/<%= @party.id %>/receipt">Check the Receipt</a>
 <h2>Add to Order</h2>
 
 <% @foods.each do |food| %>
