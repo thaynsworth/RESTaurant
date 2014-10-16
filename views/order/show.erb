@@ -1,7 +1,14 @@
 
-<% @party.orders.each do |order| %>
 	<li>
-			<%= order.food.food_name %>
+			<%= @order.food.food_name %>
 	</li>
-<% end %>
+
+<form action="/orders/<%= @order.id %>" method="post">
+	<input type="hidden" name="_method" value="delete">
+	<input type="submit" value="Delete Order Item">
+</form> 
+
+<a href="/">Home</a>
+<a href="/parties">Show All Parties</a>
+
 

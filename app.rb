@@ -25,9 +25,19 @@ get '/foods/new' do
 end
 
 post '/foods' do
-	Food.create(params[:food])
-	redirect '/foods'
+	food = Food.create(params[:food])
+	if food.valid?
+		redirect '/foods'
+	else
+		@errors = food.errors.full_messages
+		erb :'food/new'
+	end
 end
+
+# post '/foods' do
+# 	Food.create(params[:food])
+# 	redirect '/foods'
+# end
 
 get '/foods/:id' do
 	@food = Food.find(params[:id])
@@ -116,14 +126,14 @@ post '/orders' do
 end
 
 get '/orders/:id' do
-	order = Order.find(params[:id])
-	@party = order.party
+	@order = Order.find(params[:id])
+	# @orders = Order.find(params[:id])
 	erb :'order/show'
 end
 
 delete '/orders/:id' do
 	Order.destroy(params[:id])
-	redirect "/parties/#{order.party_id}"
+	redirect '/parties'
 end
 
 get '/parties/:id/receipt' do

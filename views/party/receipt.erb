@@ -1,10 +1,44 @@
 <h1>Receipt for.. </h1>
+	<ul>
+		Name: <%= @party.name %> ||
+		Table Number: <%= @party.table_num %> ||
+		Party Size: <%= @party.party_size %>
+	</ul>
 
 <form action='/parties/<%= @party.id %>'name="method" method="post">
 	<input type="hidden" name="party[id]" value="<%= @party.id %>">
 </form>
 
 <% @orders.each do |order| %>
-	<%= order.food.food_name %>
-	<%= order.food.price %>
+	<p><%= order.food.food_name %></p>
+	<p><% @total = order.food.price.to_i %>
+	Price: $<%= @total %></p> 
 <% end %>
+
+<% total = @party.orders.map { |order| order.food.price } %>
+	<% total_bill = total.sum %>
+Total: $<%= total_bill %>
+
+<div>
+	<h4>Including 15% Gratuity</h4>
+		<p><% grat = total_bill * 1.15 %>
+		Total: $<%= grat %></p>
+</div>
+
+<div>
+	<h4>Including 20% Gratuity</h4>
+		<p><% grat = total_bill * 1.2 %>
+		Total: $<%= grat %></p>
+</div>
+
+<div>
+	<h4>Including 25% Gratuity</h4>
+		<p><% grat = total_bill * 1.25 %>
+		Total: $<%= grat %></p>
+</div>
+
+<div>
+	<a href="/">Home</a>
+	<a href="/parties">Show All Parties</a>
+	<a href="/receipt.txt">Open Receipt</a>
+</div>

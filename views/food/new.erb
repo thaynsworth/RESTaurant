@@ -6,6 +6,12 @@
 	<input type="submit">
 </form>
 
+<%if @errors %>
+	<% @errors.each do |error| %>
+			<%= error %>
+	<% end %>
+<% end %>
+
 <a href="/">Home</a>
 <a href="/foods">Show Menu</a>
 <a href="/parties">Show All Parties</a>
