@@ -1,1 +1,1 @@
-["Bacon", 2]["Gravy", 3]["Fries", 7]["Burger", 10]["Bacon", 2]["Gravy", 3]
+["Bacon", 2]["Chicken", 12]["Fries", 7]["Bacon", 2]["Burger", 10]

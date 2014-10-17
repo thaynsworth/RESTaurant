@@ -1,8 +1,9 @@
 <h1>Receipt for.. </h1>
 	<ul>
-		Name: <%= @party.name %> ||
-		Table Number: <%= @party.table_num %> ||
-		Party Size: <%= @party.party_size %>
+		Name: <%= @party.name %> |||
+		Table Number: <%= @party.table_num %> |||
+		Party Size: <%= @party.party_size %> |||
+		Paid: <%= @party.paid %>
 	</ul>
 
 <form action='/parties/<%= @party.id %>'name="method" method="post">
@@ -36,6 +37,11 @@ Total: $<%= total_bill %>
 		<p><% grat = total_bill * 1.25 %>
 		Total: $<%= grat %></p>
 </div>
+
+<form action="/parties/<%= @party.id %>/orders/checkout" method="post">
+	<input type="hidden" name="_method" value="patch">
+	<button>CheckOut</button>
+</form>
 
 <div>
 	<a href="/">Home</a>

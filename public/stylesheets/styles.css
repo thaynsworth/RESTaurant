@@ -1,4 +1,16 @@
 body {
-	background-image: url(http://cache.desktopnexus.com/thumbnails/1218849-bigthumbnail.jpg); 
+	background: url(http://www.solidbackgrounds.com/images/two/851x315/851x315-tiffany-blue-tigers-eye-two-color-background.jpg);
+	font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+	color: white;
 
 }
+
+h1 {
+	text-align: center;
+	font-size: 90px;
+}
+
+a { 
+	text-align: center;
+}
+

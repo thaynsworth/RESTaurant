@@ -34,11 +34,6 @@ post '/foods' do
 	end
 end
 
-# post '/foods' do
-# 	Food.create(params[:food])
-# 	redirect '/foods'
-# end
-
 get '/foods/:id' do
 	@food = Food.find(params[:id])
 	erb :'food/show'
@@ -147,6 +142,13 @@ get '/parties/:id/receipt' do
 	end
 	file.close
 	erb :'party/receipt'
+end
+
+patch '/parties/:id/orders/checkout' do
+	party = Party.find(params[:id])
+	new_paid = "PAID"
+	party.update({paid: new_paid})
+	redirect '/parties'
 end
 
 
