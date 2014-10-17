@@ -134,7 +134,7 @@ end
 get '/parties/:id/receipt' do
 	@party = Party.find(params[:id])
 
-	file = File.open('receipt.txt', 'w')
+	file = File.open('receipt.txt', 'a+')
 
 	@orders = Order.where(party_id: params[:id])
 	@orders.each do |order|

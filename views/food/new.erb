@@ -1,10 +1,16 @@
-<h2>Add Food Item</h2>
+<h1>Add Food Item</h1>
+	<div class="links">
+		<a href="/">Home |</a>
+		<a href="/foods">Menu</a>
+	</div>
 
-<form action="/foods" method="post">
-	<input type="text" name="food[food_name]" placeholder="Enter Food">
-	<input type="integer" name="food[price]" placeholder="Enter Price">
-	<input type="submit">
-</form>
+	<div class="menu">
+		<form action="/foods" method="post">
+			<input type="text" name="food[food_name]" placeholder="Enter Food">
+			<input type="integer" name="food[price]" placeholder="Enter Price">
+			<input type="submit">
+		</form>
+	</div>
 
 <%if @errors %>
 	<% @errors.each do |error| %>
@@ -12,7 +18,4 @@
 	<% end %>
 <% end %>
 
-<a href="/">Home</a>
-<a href="/foods">Show Menu</a>
-<a href="/parties">Show All Parties</a>
-<a href="/parties/new">Add Party</a>
+

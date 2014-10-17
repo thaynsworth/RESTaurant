@@ -1,16 +1,18 @@
 <h1>Menu</h1>
-
-<a href="/">Home</a>
-<a href="/foods/new">Add Item</a>
-
-<ul>
-	<% @food.each do |food| %>
-		<li>
-			<a href="/foods/<%= food.id %>">
-			<%= food.food_name %> --
-			$<%= food.price %></a>
-		</li>
-	<% end %> 
-</ul>
+	<div class="links">
+		<a href="/">Home |</a>
+		<a href="/foods/new">Add Item</a>
+	</div>
+	
+	<div class="menu">
+		Click Item to Edit/Delete
+		<% @food.each do |food| %>
+			<li>
+				<a href="/foods/<%= food.id %>">
+				<%= food.food_name %> --
+				$<%= food.price %></a>
+			</li>
+		<% end %> 
+	</div>
 
 

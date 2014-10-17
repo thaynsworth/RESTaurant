@@ -1,16 +1,27 @@
+<h1>Edit/Delete Food Item</h1>
+	<div class="links">
+		<a href="/">Home |</a>
+		<a href="/foods">Show Menu</a>
+	</div>
 
-<ul>
-	<%= @food.food_name %>
-	<%= @food.price %>
-</ul> 
+	<div class="menu">
+		<li style="font-size:20px">
+			<%= @food.food_name %> --
+			$<%= @food.price %>
+		</li> 
 
-<form action="/foods/<%= @food.id %>" method="post">
-	<input type="hidden" name="_method" value="delete">
-	<input type="submit" value="Delete Food Item">
-</form>
+		<form action="/foods/<%= @food.id %>" method="post">
+			<input type="hidden" name="_method" value="patch">
+			<input type="text" name="food[food_name]" placeholder="Edit Food">
+			<input type="integer" name="food[price]" placeholder="Edit Price">
+			<input type="submit">
+		</form>
 
-<a href="/">Home</a>
-<a href="/foods">Show Menu</a>
-<a href="/foods/new">Add Item</a>
-<a href="/parties">Show All Parties</a>
-<a href="/parties/new">Add Party</a>
+		<form action="/foods/<%= @food.id %>" method="post">
+			<input type="hidden" name="_method" value="delete">
+			<input type="submit" value="Delete Food Item">
+		</form>
+	</div>
+
+
+	

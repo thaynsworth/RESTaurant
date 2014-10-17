@@ -1,50 +1,38 @@
 <h1>Receipt for.. </h1>
-	<ul>
-		Name: <%= @party.name %> |||
-		Table Number: <%= @party.table_num %> |||
-		Party Size: <%= @party.party_size %> |||
+	<div class="menu">
+		Name: <%= @party.name %> ||
+		Table Number: <%= @party.table_num %> ||
+		Party Size: <%= @party.party_size %> ||
 		Paid: <%= @party.paid %>
-	</ul>
+		<% @orders.each do |order| %>
+			<p><%= order.food.food_name %>
+			<% @total = order.food.price.to_i %>
+			Price: $<%= @total %></p> 
+		<% end %>
+		<div style="font-size:45px">
+			<% total = @party.orders.map { |order| order.food.price } %>
+				<% total_bill = total.sum %>
+			Total: $<%= total_bill %>
+		</div>
+	</div>
 
-<form action='/parties/<%= @party.id %>'name="method" method="post">
-	<input type="hidden" name="party[id]" value="<%= @party.id %>">
-</form>
+	<div class="checkout">
+		<p>Including 15% Gratuity:<% grat = total_bill * 1.15 %> $<%= grat.round(2) %></p>
+		<p>Including 20% Gratuity:<% grat = total_bill * 1.2 %> $<%= grat.round(3) %></p>
+		<p>Including 25% Gratuity:<% grat = total_bill * 1.25 %> $<%= grat.round(2) %></p>
 
-<% @orders.each do |order| %>
-	<p><%= order.food.food_name %></p>
-	<p><% @total = order.food.price.to_i %>
-	Price: $<%= @total %></p> 
-<% end %>
+		<form style="text-align:center" action="/parties/<%= @party.id %>/orders/checkout" method="post">
+			<input type="hidden" name="_method" value="patch">
+			<button>CheckOut</button>
+		</form>
+	</div>
 
-<% total = @party.orders.map { |order| order.food.price } %>
-	<% total_bill = total.sum %>
-Total: $<%= total_bill %>
+	<div class="links">
+		<a href="/">Home |</a>
+		<a href="/parties">Show All Parties</a>
+	</div>
 
-<div>
-	<h4>Including 15% Gratuity</h4>
-		<p><% grat = total_bill * 1.15 %>
-		Total: $<%= grat %></p>
-</div>
 
-<div>
-	<h4>Including 20% Gratuity</h4>
-		<p><% grat = total_bill * 1.2 %>
-		Total: $<%= grat %></p>
-</div>
-
-<div>
-	<h4>Including 25% Gratuity</h4>
-		<p><% grat = total_bill * 1.25 %>
-		Total: $<%= grat %></p>
-</div>
-
-<form action="/parties/<%= @party.id %>/orders/checkout" method="post">
-	<input type="hidden" name="_method" value="patch">
-	<button>CheckOut</button>
-</form>
-
-<div>
-	<a href="/">Home</a>
-	<a href="/parties">Show All Parties</a>
-	<a href="/receipt.txt">Open Receipt</a>
-</div>
+	<form action='/parties/<%= @party.id %>'name="method" method="post">
+		<input type="hidden" name="party[id]" value="<%= @party.id %>">
+	</form>

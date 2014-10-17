@@ -1,5 +1,5 @@
 body {
-	background: url(http://www.solidbackgrounds.com/images/two/851x315/851x315-tiffany-blue-tigers-eye-two-color-background.jpg);
+	background: url(http://fsa.zedge.net/scale.php?img=OS81LzAvNC8xLTc1OTQ5MjctOTUwNDc0Ni5qcGc&ctype=1&v=4&q=81&xs=620&ys=383&sig=d405869a47c3b555763120328674b20343547b52);
 	font-family: Copperplate, "Copperplate Gothic Light", fantasy;
 	color: white;
 
@@ -7,10 +7,43 @@ body {
 
 h1 {
 	text-align: center;
-	font-size: 90px;
+	font-size: 85px;
 }
 
 a { 
-	text-align: center;
+	color: white;
+	text-decoration: none;
+	font-size: 30px;
 }
 
+.links {
+	text-align: center
+}
+
+.menu {
+	list-style-type: none;
+	text-align: center;
+	padding: 70px;
+}
+
+.order1 {
+	margin: 25px 550px 25px 550px;
+	background-color: lightgrey;
+	padding: 15px;
+	color: black;
+}
+
+.order2 {
+	margin: 25px 550px 25px 550px;
+	background-color: lightgrey;
+	padding: 15px;
+	color: black;
+}
+
+.checkout {
+	margin-right: 600px;
+	margin-left: 600px;
+	border: 3px black;
+	background-color: lightgrey;
+	color: black;
+}

@@ -1,10 +1,11 @@
 <h1>Edit Menu</h1>
-
-<a href="/">Home</a>
-<a href="/foods">Show Menu</a>
-<a href="/foods/new">Add Item</a>
-<a href="/parties">Show All Parties</a>
-<a href="/parties/new">Add Party</a>
+	<div class="links">
+		<a href="/">Home</a>
+		<a href="/foods">Show Menu</a>
+		<a href="/foods/new">Add Item</a>
+		<a href="/parties">Show All Parties</a>
+		<a href="/parties/new">Add Party</a>
+	</div>
 
 <form action="/foods/<%= @food.id %>" method="post">
 	<input type="hidden" name="_method" value="patch">

@@ -1,39 +1,46 @@
-<h2>Party Name</h2>
-	<ul>
-		Name: <%= @party.name %> |||
-		Table Number: <%= @party.table_num %> |||
-		Party Size: <%= @party.party_size %> |||
-		Paid: <%= @party.paid %>
-	</ul>
-<h2>Party's Order</h2>
-	<ul>
+<h1>Party Info</h1>
+	<div class="links">
+		<a href="/">Home |</a>
+		<a href="/parties">All Parties</a>
+	</div>
+	<div class="menu">
+		<h2>Party Name</h2>
+				Name: <%= @party.name %> ||
+				Table Number: <%= @party.table_num %> ||
+				Party Size: <%= @party.party_size %> ||
+				Paid: <%= @party.paid %>
+			</p>
+			<form action="/parties/<%= @party.id %>" method="post">
+				<input type="hidden" name="_method" value="delete">
+				<input type="submit" value="Delete Party">
+			</form>
+
+<div class="order1">
+	<h2>Add to Order</h2>	
+		<% @foods.each do |food| %>
+			<form action="/orders" method="post">
+				<input type="hidden" name="order[party_id]" value="<%= @party.id %>">
+				<input type="hidden" name="order[food_id]" value="<%= food.id %>">
+				<input type="submit" value="<%= food.food_name %>">
+			</form>
+		<% end %>
+</div>
+
+<div class="order2">
+	Click Item to Delete
+	<h2>Party's Order</h2>
 		<% @party.orders.each do |order| %>
 			<li>
 				<a href="/orders/<%= order.id %>">
 					<%= order.food.food_name %></a>
 			</li>
 		<% end %>
-	</ul> 
+</div>
 
-	<a href="/parties/<%= @party.id %>/receipt">Check the Receipt</a>
-<h2>Add to Order</h2>
+<a href="/parties/<%= @party.id %>/receipt">Check the Receipt</a>
+	
 
-<% @foods.each do |food| %>
-	<form action="/orders" method="post">
-			<li>
-				<input type="hidden" name="order[party_id]" value="<%= @party.id %>">
-				<input type="hidden" name="order[food_id]" value="<%= food.id %>">
-				<input type="submit" value="<%= food.food_name %>">
-			</li>
-	</form>
-<% end %>
 
-	<form action="/parties/<%= @party.id %>" method="post">
-		<input type="hidden" name="_method" value="delete">
-		<input type="submit" value="Delete Party">
-	</form>
 
-	<a href="/">Home</a>
-	<a href="/foods">Show Menu</a>
-	<a href="/parties">Show All Parties</a>
+
 

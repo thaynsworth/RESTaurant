@@ -12,7 +12,8 @@ CREATE TABLE parties (
 	id SERIAL PRIMARY KEY,
 	name VARCHAR(100),
 	table_num INTEGER,
-	party_size INTEGER
+	party_size INTEGER,
+	paid VARCHAR(5)
 );
 
 CREATE TABLE orders (
