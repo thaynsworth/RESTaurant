@@ -2,9 +2,23 @@ require 'bundler'
 Bundler.require
 
 require './connection'
+require_relative 'helpers/link_helper'
+require_relative 'helpers/form_helper'
+helpers ActiveSupport::Inflector
 
 ROOT_PATH = Dir.pwd
 Dir[ROOT_PATH+"/lib/*.rb"].each{ |file| require file }
+
+#####
+# can use this to get you into pry quickly
+# get '/console' do
+# 	binding.pry
+# end
+#####
+
+###################
+## Homepage
+###################
 
 get '/' do
 	# need to add main page here

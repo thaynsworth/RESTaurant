@@ -27,12 +27,6 @@
 		</form>
 	</div>
 
-	<div class="links">
-		<a href="/">Home |</a>
-		<a href="/parties">Show All Parties</a>
-	</div>
-
-
 	<form action='/parties/<%= @party.id %>'name="method" method="post">
 		<input type="hidden" name="party[id]" value="<%= @party.id %>">
 	</form>
