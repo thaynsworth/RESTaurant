@@ -8,10 +8,12 @@
 		</form>
 	</div>
 
-<%if @errors %>
-	<% @errors.each do |error| %>
-			<%= error %>
-	<% end %>
-<% end %>
+	<div class="link">
+		<%if @errors %>
+			<% @errors.each do |error| %>
+					<%= error %>
+			<% end %>
+		<% end %>
+	</div>
 
 

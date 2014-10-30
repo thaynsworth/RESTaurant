@@ -1,29 +1,37 @@
 <h1>Party Info</h1>
 
-	<div class="menu">
-		<h2>Party Name</h2>
-				Name: <%= @party.name %> ||
-				Table Number: <%= @party.table_num %> ||
-				Party Size: <%= @party.party_size %> ||
-				Paid: <%= @party.paid %>
-			</p>
-			<form action="/parties/<%= @party.id %>" method="post">
-				<input type="hidden" name="_method" value="delete">
-				<input type="submit" value="Delete Party">
-			</form>
+	<table class="table">
+		<tr>
+			<td>
+				<form action="/parties/<%= @party.id %>" method="post">
+					<input type="hidden" name="_method" value="delete">
+					<input type="submit" value="Delete Party">
+				</form>
+			</td>
+			<td>Name: <%= @party.name %></td>
+			<td>Table Number: <%= @party.table_num %></td>
+			<td>Party Size: <%= @party.party_size %></td>
+			<td>Paid: <%= @party.paid %></td>
+		</tr>
+	</table>
 
-<div class="order1">
-	<h2>Add to Order</h2>	
-		<% @foods.each do |food| %>
-			<form action="/orders" method="post">
-				<input type="hidden" name="order[party_id]" value="<%= @party.id %>">
-				<input type="hidden" name="order[food_id]" value="<%= food.id %>">
-				<input type="submit" value="<%= food.food_name %>">
-			</form>
-		<% end %>
-</div>
+<h2>Add to Order</h2>
+	<table class="table">
+		<tr>
+		<% @foods.each do |food| %>	
+			<td>
+				<form action="/orders" method="post">
+					<input type="hidden" name="order[party_id]" value="<%= @party.id %>">
+					<input type="hidden" name="order[food_id]" value="<%= food.id %>">
+					<input type="submit" value="<%= food.food_name %>">
+				</form>			
+			</td>
+		<% end %>	
+		</tr>
+	</table>
 
-<div class="order2">
+
+<div>
 	Click Item to Delete
 	<h2>Party's Order</h2>
 		<% @party.orders.each do |order| %>

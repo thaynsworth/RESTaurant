@@ -3,18 +3,16 @@
 		<a href="/parties/new">Add Party</a>
 	</div>
 
-	<div class="menu">
-		Click Party Open:
-
-		<% @party.each do |party| %>
-			<li>
-				<a href="/parties/<%= party.id %>">
-	 			Name: <%= party.name %> ||
-				Table Number: <%= party.table_num %> ||
-				Party Size: <%= party.party_size %> ||
-				Paid: <%= party.paid %></a>
-			</li>
-		<% end %>
-	</div>
+<table class="table">
+	<% @party.each do |party| %>
+	<tr>
+		<td><a href="/parties/<%= party.id %>">Select</a></td>
+		<td>Name: <%= party.name %></td>
+		<td>Table Number: <%= party.table_num %></td>
+		<td>Party Size: <%= party.party_size %></td>
+		<td>Paid: <%= party.paid %></td>
+	</tr>
+	<% end %>
+</table>
 
 

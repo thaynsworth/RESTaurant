@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<link href='http://fonts.googleapis.com/css?family=Cabin+Sketch' rel='stylesheet' type='text/css'>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width">
-	<title>RESTaurant</title>
-	<link rel="stylesheet" href="/stylesheets/styles.css">
-</head>
-<body>
-	<%= erb :_header %>
-	<%= yield %>
+	<head>
+		<link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width">
+		<title>RESTaurant</title>
+		<link rel="stylesheet" href="/stylesheets/styles.css">
+	</head>
+	<body>
+		
+		<% if current_user %>
+	    <%= erb :'_navigation_user'%>
+	  <% else %>
+	    <%= erb :'_navigation_non_user'%>
+		<% end %>
+		
+		<%= yield %>
 
-</body>
+	</body>
 </html>

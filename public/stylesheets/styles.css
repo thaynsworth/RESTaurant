@@ -1,29 +1,44 @@
+/*background pics?
+black/white pictures???
+http://thoughtfulspot.typepad.com/.a/6a0128760776fb970c019affa321e6970b-800wi
+http://www.artofweddingspdx.com/wp-content/uploads/2013/01/rustic-vintage-camping-themed-wedding-outdoor-dining-table-setting-e1358370076448.jpg
+http://3.bp.blogspot.com/-FDLD3sTUrfI/ThuYOolf2iI/AAAAAAAAELY/_3iCJVUWC-c/s1600/outdoor_dining3.jpg
+http://4.bp.blogspot.com/-I68WMgpa8hM/ThuYOaOpbuI/AAAAAAAAELU/Jkj7ai0Nkec/s1600/outdoor_dining2.JPG
+*/
+
 body {
-	background: url(http://fsa.zedge.net/scale.php?img=OS81LzAvNC8xLTc1OTQ5MjctOTUwNDc0Ni5qcGc&ctype=1&v=4&q=81&xs=620&ys=383&sig=d405869a47c3b555763120328674b20343547b52);
-	font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+	background: url(http://www.wallpaper4k.com/wp/minimalism/WPYTN7AC.jpg);
+	background-size: cover;
+	font-family: 'Quicksand', sans-serif;
 	color: white;
 
 }
 
 h1 {
-	font-family: 'Cabin Sketch';
-	text-align: center;
-	font-size: 85px;
+	text-align: left;
+	font-size: 70px;
 }
 
-a { 
+table, th, td {
+		font-size: 20px;
+    border: 1px solid white;
+    border-collapse: collapse;
+}
+th,td {
+    padding: 15px;
+}
+
+a {
+	text-align: left;
+	font-family: 'Quicksand', sans-serif;
 	color: white;
 	text-decoration: none;
 	font-size: 30px;
 }
 
-.links {
-	text-align: center
-}
-
 .menu {
 	list-style-type: none;
-	text-align: center;
+	text-align: left;
 	padding: 70px;
 }
 
@@ -32,6 +47,7 @@ a {
 	background-color: lightgrey;
 	padding: 15px;
 	color: black;
+	text-align: left;
 }
 
 .order2 {
@@ -39,6 +55,7 @@ a {
 	background-color: lightgrey;
 	padding: 15px;
 	color: black;
+	text-align: left;
 }
 
 .checkout {
@@ -47,4 +64,5 @@ a {
 	border: 3px black;
 	background-color: lightgrey;
 	color: black;
+	text-align: left;
 }
